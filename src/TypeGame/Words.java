@@ -5,7 +5,10 @@
  */
 package TypeGame;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -18,23 +21,31 @@ public class Words extends MoveStuff {
     private String stuff;
 
     public Words(String b, int x, int y) {
-        super(x, y);
+        super(x-(int) (Math.random()*100), y);
         stuff = b;
         speed = 1;
     }
 
     public Words(String b, int x, int y, int spd) {
-        super(x, y);
+        super(x-(int) (Math.random()*200), y);
         stuff = b;
         speed = spd;
     }
 
     public void draw(Graphics window) {
-        window.drawString(stuff, getX(), getY());
+        window.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+        window.setColor(Color.BLACK);
+        window.drawString(stuff, super.getX(), super.getY());
+        
     }
 
     public void move() {
         super.setX(super.getX() + speed);
+
+        //System.out.println(super.getX());
+        System.out.println(super.getY());
+        
+
     }
 
     /**

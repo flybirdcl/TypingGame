@@ -27,8 +27,7 @@ public class MoveWords {
     public MoveWords(int size) {
         Bunch = new ArrayList<Words>();
         for (int i = 0; i < size; i++) {
-            Bunch.add(new Words("SUP", -10, (int) (Math.random() * 450), 3));
-            //System.out.print("h");
+            Bunch.add(new Words("SUP", -10, (int) (Math.random() * 450)+70, 1));
         }
     }
 

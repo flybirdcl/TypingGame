@@ -37,13 +37,13 @@ public class User extends JFrame {
 
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        /*JFrame frame = new JFrame();
+        JFrame frame = new JFrame();
         frame.setSize(400, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         // BUTTON STUFF
         //JFrame frame = new JFrame();
-        frame.setSize(400, 400);
+        frame.setSize(200, 100);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Container container = frame.getContentPane();
@@ -54,7 +54,7 @@ public class User extends JFrame {
 
         JLabel label = new JLabel("");
 
-        JButton okButton = new JButton("OK");
+        JButton okButton = new JButton("Enter");
         okButton.addActionListener(new ActionListener() {
 
             @Override
@@ -62,7 +62,7 @@ public class User extends JFrame {
                 String input = textField.getText();
                 System.out.println("Input: " + input);
 
-                label.setText(input);
+                //label.setText(input);
             }
         });
 
@@ -71,7 +71,7 @@ public class User extends JFrame {
         container.add(label);
 
         frame.setVisible(true);
-        */
+        
     }
 
     public static void main(String args[]) {

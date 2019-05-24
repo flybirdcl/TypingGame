@@ -28,6 +28,7 @@ public class DifficultyGame extends Canvas implements KeyListener, Runnable{
     private BufferedImage back;
     private String input;
     private Boolean[] keys;
+    private int x = 1;
     public DifficultyGame() {
         setBackground(Color.white);
 
@@ -62,45 +63,22 @@ public class DifficultyGame extends Canvas implements KeyListener, Runnable{
         graphToBack.setColor(Color.BLUE);
         graphToBack.drawString("Typing Game", 25, 50);
         
-        twoDGraph.drawImage(back, null, 0, 0);
-        pass.drawAll(graphToBack);
         pass.moveAll();
-        
+
+        pass.drawAll(graphToBack);
+        twoDGraph.drawImage(back, null, 0, 0);
+
     }
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             keys[0] = true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            keys[1] = true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
-            keys[2] = true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            keys[3] = true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            keys[4] = true;
         }
         repaint();
     }
 
     public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             keys[0] = false;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            keys[1] = false;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
-            keys[2] = false;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            keys[3] = false;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            keys[4] = false;
         }
         repaint();
     }
