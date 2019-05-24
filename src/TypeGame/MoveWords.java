@@ -20,14 +20,14 @@ public class MoveWords {
         Bunch = new ArrayList<Words>();
         for (int i = 0; i < size; i++) {
             Bunch.add(new Words("SUP", -10, (int) (Math.random() * 450), speed));
-            
+
         }
     }
 
     public MoveWords(int size) {
         Bunch = new ArrayList<Words>();
         for (int i = 0; i < size; i++) {
-            Bunch.add(new Words("SUP", -10, (int) (Math.random() * 450)+70, 1));
+            Bunch.add(new Words("SUP", -10, (int) (Math.random() * 450) + 70, 1));
         }
     }
 
@@ -46,17 +46,18 @@ public class MoveWords {
             i.move();
         }
     }
-    public void removeEntered(String b){
+
+    public void removeEntered(String b) {
         int i = 0;
-        for(Words e : Bunch){
+        for (Words e : Bunch) {
             String c = e.getStuff();
-            if(b.equals(c)){
+            if (b.equals(c)) {
                 Bunch.remove(i);
                 i--;
             }
             i++;
         }
-        
+
     }
 
     public void removeAllWords() {
@@ -80,5 +81,5 @@ public class MoveWords {
     public void setBunch(List<Words> Bunch) {
         this.Bunch = Bunch;
     }
-    
+
 }

@@ -40,7 +40,7 @@ public class User extends JFrame {
         JFrame frame = new JFrame();
         frame.setSize(400, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
         // BUTTON STUFF
         //JFrame frame = new JFrame();
         frame.setSize(200, 100);
@@ -71,11 +71,11 @@ public class User extends JFrame {
         container.add(label);
 
         frame.setVisible(true);
-        
+
     }
 
     public static void main(String args[]) {
         User run = new User();
-        
+
     }
 }

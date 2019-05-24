@@ -21,13 +21,13 @@ public class Words extends MoveStuff {
     private String stuff;
 
     public Words(String b, int x, int y) {
-        super(x-(int) (Math.random()*100), y);
+        super(x - (int) (Math.random() * 100), y);
         stuff = b;
         speed = 1;
     }
 
     public Words(String b, int x, int y, int spd) {
-        super(x-(int) (Math.random()*200), y);
+        super(x - (int) (Math.random() * 200), y);
         stuff = b;
         speed = spd;
     }
@@ -36,7 +36,7 @@ public class Words extends MoveStuff {
         window.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         window.setColor(Color.BLACK);
         window.drawString(stuff, super.getX(), super.getY());
-        
+
     }
 
     public void move() {
@@ -44,7 +44,6 @@ public class Words extends MoveStuff {
 
         //System.out.println(super.getX());
         System.out.println(super.getY());
-        
 
     }
 

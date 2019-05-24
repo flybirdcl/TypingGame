@@ -21,7 +21,7 @@ import java.util.ArrayList;
  *
  * @author liuc5363
  */
-public class DifficultyGame extends Canvas implements KeyListener, Runnable{
+public class DifficultyGame extends Canvas implements KeyListener, Runnable {
 
     private int difficulty;
     private MoveWords pass;
@@ -29,6 +29,7 @@ public class DifficultyGame extends Canvas implements KeyListener, Runnable{
     private String input;
     private Boolean[] keys;
     private int x = 1;
+
     public DifficultyGame() {
         setBackground(Color.white);
 
@@ -62,13 +63,14 @@ public class DifficultyGame extends Canvas implements KeyListener, Runnable{
         graphToBack.fillRect(0, 0, 800, 600);
         graphToBack.setColor(Color.BLUE);
         graphToBack.drawString("Typing Game", 25, 50);
-        
+
         pass.moveAll();
 
         pass.drawAll(graphToBack);
         twoDGraph.drawImage(back, null, 0, 0);
 
     }
+
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             keys[0] = true;
@@ -82,10 +84,10 @@ public class DifficultyGame extends Canvas implements KeyListener, Runnable{
         }
         repaint();
     }
+
     public void keyTyped(KeyEvent e) {
         //no code needed here
     }
-    
 
     public void run() {
         try {
