@@ -36,6 +36,7 @@ public class DifficultyGame extends Canvas implements KeyListener, Runnable {
     private int x = 1;
     private Score keeper;
     private int scorer;
+
     
 
     public DifficultyGame() {
@@ -58,7 +59,7 @@ public class DifficultyGame extends Canvas implements KeyListener, Runnable {
         } catch (IOException e) {
             System.out.println("CAN'T FIND FILE NAME OF WordList.txt. Make sure it's in the folder.");
         }
-        pass = new MoveWords(wordList);
+        pass = new MoveWords(User.getAmount(), wordList);
         this.addKeyListener(this);
         new Thread(this).start();
 
@@ -89,27 +90,19 @@ public class DifficultyGame extends Canvas implements KeyListener, Runnable {
         pass.moveAll();
         Boolean checker;
         pass.drawAll(graphToBack);
-        if (keys[0] == true) {
-            System.out.println("h");
-            for (String b : wordList) {
-                checker = User.getTruth(b);
-                if (checker == true) {
-                    pass.removeEntered(b);
-                    break;
-                }
-            }
-            keys[0] = false;
-        }
+        int j = 0;        
         for (String b : wordList) {
             checker = User.getTruth(b);
             if (checker == true) {
                 pass.removeEntered(b);
+                wordList.remove(j);
                 scorer++;
                 break;
             }
+            j++;
         }
         //sutbract score when last word passes
-        if(pass.getBunch().get(pass.getBunch().size()-1).getX() > 740){
+        if(pass.getBunch().size() > 0 && pass.getBunch().get(pass.getBunch().size()-1).getX() > 740){
             scorer--;
         } 
         for (Words a : pass.getBunch()) {
@@ -122,7 +115,7 @@ public class DifficultyGame extends Canvas implements KeyListener, Runnable {
         
         if(pass.getBunch().size() == 0){
             try {
-                keeper.EnterScore(scorer);
+                keeper.EnterScore(scorer, User.getDifficulty());
             } catch (IOException ex) {
                 Logger.getLogger(DifficultyGame.class.getName()).log(Level.SEVERE, null, ex);
             }

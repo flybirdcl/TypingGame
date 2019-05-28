@@ -20,9 +20,12 @@ import java.nio.file.Paths;
  */
 public class Score {
 
-    public void EnterScore(int a) throws IOException {
+    public void EnterScore(int a, int b) throws IOException {
+        //stores to text file
+        System.out.println("" + User.getName1() + " has a score of " + a + " at a difficulty level of " + b);
         PrintWriter out = new PrintWriter("Scores.txt");
-        out.println("" + User.getName1() + ": " + a);
+        
+        out.println("" + User.getName1() + " has a score of " + a + " at a difficulty level of " + b);
         out.close();
     }
 

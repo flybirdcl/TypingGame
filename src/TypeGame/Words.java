@@ -23,7 +23,7 @@ public class Words extends MoveStuff {
     public Words(String b, int x, int y) {
         super(x - (int) (Math.random() * 100), y);
         stuff = b;
-        speed = 1;
+        speed = User.getDifficulty();
     }
 
     public Words(String b, int x, int y, int spd) {

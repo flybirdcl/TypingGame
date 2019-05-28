@@ -15,20 +15,23 @@ import java.util.*;
 public class MoveWords {
 
     private List<Words> Bunch;
+    private int sizer;
     public MoveWords(int size, ArrayList<String> b) {
         Bunch = new ArrayList<Words>();
+        sizer = size;
         for (int i = 0; i < size; i++) {
-            Bunch.add(new Words(b.get(i), -10, (int) (Math.random() * 450), 1));
+            //checks.add(new Words(b.get(i), -10, (int) (Math.random() * 450), User.getDifficulty()));
+            Bunch.add(new Words(b.get(i), -10, (int) (Math.random() * 450)+70, User.getDifficulty()));
 
         }
     }
 
-    public MoveWords(ArrayList<String> b) {
+    /*public MoveWords(ArrayList<String> b) {
         Bunch = new ArrayList<Words>();
         for (int i = 0; i < b.size(); i++) {
-            Bunch.add(new Words(b.get(i), -10, (int) (Math.random() * 450) + 70, 1));
+            Bunch.add(new Words(b.get(i), -10, (int) (Math.random() * 450) + 70, User.getDifficulty()));
         }
-    }
+    }*/
 
     public void add(Words al) {
         getBunch().add(al);
@@ -57,10 +60,12 @@ public class MoveWords {
             i++;
         }*/
         for(int j = 0; j < Bunch.size(); j++){
-            if (b.equals(Bunch.get(j))) {
+            if (b.equals(Bunch.get(j).getStuff())) {
                 Bunch.remove(j);
                 j--;
+                break;
             }
+            
         } 
 
     }

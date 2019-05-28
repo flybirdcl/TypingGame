@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -29,6 +30,8 @@ public class User extends JFrame {
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
     private static JTextField textField;
+    private static int Difficulty;
+    private static int amount;
 
     /**
      * @return the name
@@ -43,6 +46,35 @@ public class User extends JFrame {
     public static void setName1(String aName) {
         name = aName;
     }
+
+    /**
+     * @return the Difficulty
+     */
+    public static int getDifficulty() {
+        return Difficulty;
+    }
+
+    /**
+     * @param aDifficulty the Difficulty to set
+     */
+    public static void setDifficulty(int aDifficulty) {
+        Difficulty = aDifficulty;
+    }
+
+    /**
+     * @return the amount
+     */
+    public static int getAmount() {
+        return amount;
+    }
+
+    /**
+     * @param aAmount the amount to set
+     */
+    public static void setAmount(int aAmount) {
+        amount = aAmount;
+    }
+
     public User() {
         super("Typing Game");
         setSize(WIDTH, HEIGHT);
@@ -89,7 +121,7 @@ public class User extends JFrame {
 
         frame.setVisible(true);
 
-    } 
+    }
 
     public static Boolean getTruth(String a) {
 
@@ -102,13 +134,36 @@ public class User extends JFrame {
     }
 
     public static void main(String args[]) {
-        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Enter username");
-        String userName = myObj.nextLine();  // Read user input
-        setName1(userName);
+        //Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+        //System.out.println("Enter username");
+        String userName = JOptionPane.showInputDialog(null, "Enter your username:");
+        String c = JOptionPane.showInputDialog(null, "Enter difficulty (Input numbers 1-5 with 1 being the easiest)");
 
+        try {
+            setDifficulty(Integer.parseInt(c));
+        } catch (NumberFormatException ex) {
+            System.out.println("Is not an integer! Please at least input only integers!");
+        }
+        if (!(Difficulty >= 1 && Difficulty <= 5)) {
+            System.out.println("PLEASE INPUT NUMBERS 1-5 ONLY");
+            System.exit(0);
+        }
+        String d = JOptionPane.showInputDialog(null, "Enter the amount of words to be used (1-40)");
+
+        try {
+            setAmount(Integer.parseInt(d));
+        } catch (NumberFormatException ex) {
+            System.out.println("Is not an integer! Please at least input only integers!");
+        }
+        if (!(amount >= 1 && amount <= 40)) {
+            System.out.println("PLEASE INPUT NUMBERS 1-40 ONLY");
+            System.exit(0);
+        }
+        //String userName = myObj.nextLine();  // Read user input
+        setName1(userName);
         User run = new User();
 
     }
+    
 
 }
