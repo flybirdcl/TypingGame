@@ -22,11 +22,11 @@ public class Score {
 
     public void EnterScore(int a, int b) throws IOException {
         //stores to text file
-        System.out.println("" + User.getName1() + " has a score of " + a + " at a difficulty level of " + b);
-        System.out.println("Check txt file stored in this folder for stored score of all users.");
+        System.out.println("" + User.getName1() + " has a score of " + a + " at a difficulty level of " + b + " and with a word amount of " + User.getAmount());
+        System.out.println("Check txt file stored in the folder for stored score of all users.");
         PrintWriter out = new PrintWriter("Scores.txt");
         
-        out.println("" + User.getName1() + " has a score of " + a + " at a difficulty level of " + b);
+        out.println("" + User.getName1() + " has a score of " + a + " at a difficulty level of " + b + " and with a word count of " + User.getAmount());
         out.close();
     }
 
