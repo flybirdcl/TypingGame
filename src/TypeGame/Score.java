@@ -23,10 +23,10 @@ public class Score {
     public void EnterScore(int a, int b) throws IOException {
         //stores to text file
         System.out.println("" + User.getName1() + " has a score of " + a + " at a difficulty level of " + b);
+        System.out.println("Check txt file stored in this folder for stored score of all users.");
         PrintWriter out = new PrintWriter("Scores.txt");
         
         out.println("" + User.getName1() + " has a score of " + a + " at a difficulty level of " + b);
-        System.out.println("Check txt file stored in this folder for stored score of all users.");
         out.close();
     }
 
