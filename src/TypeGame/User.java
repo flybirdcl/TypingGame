@@ -25,14 +25,28 @@ import java.util.Scanner;
 public class User extends JFrame {
 
     private static String name;
-    public static String inputer;
+    //public static String inputer;
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
+    private static JTextField textField;
 
+    /**
+     * @return the name
+     */
+    public static String getName1() {
+        return name;
+    }
+
+    /**
+     * @param aName the name to set
+     */
+    public static void setName1(String aName) {
+        name = aName;
+    }
     public User() {
         super("Typing Game");
         setSize(WIDTH, HEIGHT);
-        
+
         DifficultyGame theGame = new DifficultyGame();
         ((Component) theGame).setFocusable(true);
 
@@ -48,11 +62,11 @@ public class User extends JFrame {
         //JFrame frame = new JFrame();
         frame.setSize(200, 100);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
         Container container = frame.getContentPane();
         container.setLayout(new FlowLayout());
 
-        JTextField textField = new JTextField();
+        textField = new JTextField();
         textField.setPreferredSize(new Dimension(150, 25));
 
         JLabel label = new JLabel("");
@@ -68,7 +82,7 @@ public class User extends JFrame {
          //label.setText(input);
          }
          });*/
-        inputer = textField.getText();
+        //inputer = textField.getText();
         container.add(textField);
         //container.add(okButton);
         container.add(label);
@@ -76,9 +90,12 @@ public class User extends JFrame {
         frame.setVisible(true);
 
     }
-    public static Boolean getTruth(String a){
-        System.out.println(inputer);
-        if(inputer.equals(a)){
+
+    public static Boolean getTruth(String a) {
+
+        //System.out.println(inputer);
+        if (textField.getText().equals(a)) {
+            textField.setText("");
             return true;
         }
         return false;
@@ -88,8 +105,8 @@ public class User extends JFrame {
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Enter username");
         String userName = myObj.nextLine();  // Read user input
-        name = userName;
-        //System.out.println(name);
+        setName1(userName);
+
         User run = new User();
 
     }

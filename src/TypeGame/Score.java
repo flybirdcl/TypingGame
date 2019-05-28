@@ -5,40 +5,25 @@
  */
 package TypeGame;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 /**
  *
  * @author Cassidy Liu
  */
 public class Score {
-    private int score;
-    private int words;
 
-    /**
-     * @return the score
-     */
-    public int getScore() {
-        return score;
+    public void EnterScore(int a) throws IOException {
+        PrintWriter out = new PrintWriter("Scores.txt");
+        out.println("" + User.getName1() + ": " + a);
+        out.close();
     }
 
-    /**
-     * @param score the score to set
-     */
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    /**
-     * @return the words
-     */
-    public int getWords() {
-        return words;
-    }
-
-    /**
-     * @param words the words to set
-     */
-    public void setWords(int words) {
-        this.words = words;
-    }
-    
 }

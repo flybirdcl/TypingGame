@@ -15,19 +15,18 @@ import java.util.*;
 public class MoveWords {
 
     private List<Words> Bunch;
-
-    public MoveWords(int speed, int size) {
+    public MoveWords(int size, ArrayList<String> b) {
         Bunch = new ArrayList<Words>();
         for (int i = 0; i < size; i++) {
-            Bunch.add(new Words("SUP", -10, (int) (Math.random() * 450), speed));
+            Bunch.add(new Words(b.get(i), -10, (int) (Math.random() * 450), 1));
 
         }
     }
 
-    public MoveWords(int size) {
+    public MoveWords(ArrayList<String> b) {
         Bunch = new ArrayList<Words>();
-        for (int i = 0; i < size; i++) {
-            Bunch.add(new Words("SUP", -10, (int) (Math.random() * 450) + 70, 1));
+        for (int i = 0; i < b.size(); i++) {
+            Bunch.add(new Words(b.get(i), -10, (int) (Math.random() * 450) + 70, 1));
         }
     }
 
@@ -57,6 +56,12 @@ public class MoveWords {
             }
             i++;
         }
+        /*for(int j = 0; j < Bunch.size(); j++){
+            if (b.equals(Bunch.get(j))) {
+                Bunch.remove(j);
+                j--;
+            }
+        }*/
 
     }
 
