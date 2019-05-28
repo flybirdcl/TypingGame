@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.util.Scanner;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -23,13 +24,15 @@ import javax.swing.JTextField;
  */
 public class User extends JFrame {
 
+    private static String name;
+    public static String inputer;
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
 
     public User() {
         super("Typing Game");
         setSize(WIDTH, HEIGHT);
-
+        
         DifficultyGame theGame = new DifficultyGame();
         ((Component) theGame).setFocusable(true);
 
@@ -45,7 +48,7 @@ public class User extends JFrame {
         //JFrame frame = new JFrame();
         frame.setSize(200, 100);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        
         Container container = frame.getContentPane();
         container.setLayout(new FlowLayout());
 
@@ -54,28 +57,41 @@ public class User extends JFrame {
 
         JLabel label = new JLabel("");
 
-        JButton okButton = new JButton("Enter");
-        okButton.addActionListener(new ActionListener() {
+        /*JButton okButton = new JButton("Enter");
+         okButton.addActionListener(new ActionListener() {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String input = textField.getText();
-                System.out.println("Input: " + input);
+         @Override
+         public void actionPerformed(ActionEvent e) {
+         String input = textField.getText();
+         System.out.println("Input: " + input);
 
-                //label.setText(input);
-            }
-        });
-
+         //label.setText(input);
+         }
+         });*/
+        inputer = textField.getText();
         container.add(textField);
-        container.add(okButton);
+        //container.add(okButton);
         container.add(label);
 
         frame.setVisible(true);
 
     }
+    public static Boolean getTruth(String a){
+        System.out.println(inputer);
+        if(inputer.equals(a)){
+            return true;
+        }
+        return false;
+    }
 
     public static void main(String args[]) {
+        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+        System.out.println("Enter username");
+        String userName = myObj.nextLine();  // Read user input
+        name = userName;
+        //System.out.println(name);
         User run = new User();
 
     }
+
 }

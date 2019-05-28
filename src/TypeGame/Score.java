@@ -10,7 +10,6 @@ package TypeGame;
  * @author Cassidy Liu
  */
 public class Score {
-
     private int score;
     private int words;
 
@@ -41,5 +40,5 @@ public class Score {
     public void setWords(int words) {
         this.words = words;
     }
-
+    
 }

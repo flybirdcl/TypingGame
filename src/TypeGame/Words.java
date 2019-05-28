@@ -41,10 +41,6 @@ public class Words extends MoveStuff {
 
     public void move() {
         super.setX(super.getX() + speed);
-
-        //System.out.println(super.getX());
-        System.out.println(super.getY());
-
     }
 
     /**

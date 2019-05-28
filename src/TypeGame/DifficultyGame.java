@@ -16,6 +16,9 @@ import static java.lang.Character.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  *
@@ -28,15 +31,28 @@ public class DifficultyGame extends Canvas implements KeyListener, Runnable {
     private BufferedImage back;
     private String input;
     private Boolean[] keys;
+    private ArrayList<String> wordList;
     private int x = 1;
 
     public DifficultyGame() {
         setBackground(Color.white);
 
         //instantiate words on screen
-        keys = new Boolean[5];
+        keys = new Boolean[1];
+        keys[0] = false;
         pass = new MoveWords(10);
+        wordList = new ArrayList<String>();
         //input = new String("");
+        try (BufferedReader br = new BufferedReader(new FileReader("WordList.txt"))) {
+            String sCurrentLine;
+
+            while ((sCurrentLine = br.readLine()) != null) {
+              wordList.add(sCurrentLine);
+            }
+            
+        } catch (IOException e) {
+            System.out.println("CAN'T FIND FILE NAME OF WordList.txt. Make sure it's in the folder.");
+        }
         this.addKeyListener(this);
         new Thread(this).start();
 
@@ -67,6 +83,12 @@ public class DifficultyGame extends Canvas implements KeyListener, Runnable {
         pass.moveAll();
 
         pass.drawAll(graphToBack);
+        if (keys[0] == true) {
+            for (String b : wordList) {
+                Boolean checker = User.getTruth(b);
+            }
+            keys[0] = false;
+        }
         twoDGraph.drawImage(back, null, 0, 0);
 
     }
