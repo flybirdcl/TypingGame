@@ -47,7 +47,7 @@ public class MoveWords {
     }
 
     public void removeEntered(String b) {
-        int i = 0;
+        /*int i = 0;
         for (Words e : Bunch) {
             String c = e.getStuff();
             if (b.equals(c)) {
@@ -55,19 +55,19 @@ public class MoveWords {
                 i--;
             }
             i++;
-        }
-        /*for(int j = 0; j < Bunch.size(); j++){
+        }*/
+        for(int j = 0; j < Bunch.size(); j++){
             if (b.equals(Bunch.get(j))) {
                 Bunch.remove(j);
                 j--;
             }
-        }*/
+        } 
 
     }
 
     public void removeAllWords() {
         getBunch().clear();
-    }
+    } 
 
     public String toString() {
         return "";

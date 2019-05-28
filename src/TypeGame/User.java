@@ -89,7 +89,7 @@ public class User extends JFrame {
 
         frame.setVisible(true);
 
-    }
+    } 
 
     public static Boolean getTruth(String a) {
 

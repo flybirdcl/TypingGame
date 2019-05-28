@@ -104,13 +104,14 @@ public class DifficultyGame extends Canvas implements KeyListener, Runnable {
             checker = User.getTruth(b);
             if (checker == true) {
                 pass.removeEntered(b);
+                scorer++;
                 break;
             }
         }
         //sutbract score when last word passes
         if(pass.getBunch().get(pass.getBunch().size()-1).getX() > 740){
             scorer--;
-        }
+        } 
         for (Words a : pass.getBunch()) {
             int i = 0;
             if (a.getX() > 740) {
@@ -152,7 +153,7 @@ public class DifficultyGame extends Canvas implements KeyListener, Runnable {
     public void run() {
         try {
             while (true) {
-                Thread.currentThread().sleep(5);
+                Thread.currentThread().sleep(10);
                 repaint();
             }
         } catch (Exception e) {
