@@ -26,6 +26,7 @@ public class Score {
         PrintWriter out = new PrintWriter("Scores.txt");
         
         out.println("" + User.getName1() + " has a score of " + a + " at a difficulty level of " + b);
+        System.out.println("Check txt file stored in this folder for stored score of all users.");
         out.close();
     }
 
