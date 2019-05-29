@@ -1,1 +1,8 @@
-asdfasdf has a score of 1 at a difficulty level of 1 and with a word count of 1
+aasdfsdfsf has a score of 9 at a difficulty level of 2 and with a word count of 10. WPM is 120. 
+adfasdf has a score of 9 at a difficulty level of 2 and with a word count of 10. WPM is 100. 
+asfasf has a score of 9 at a difficulty level of 2 and with a word count of 10. WPM is 0. 
+asdfsadf has a score of 1 at a difficulty level of 1 and with a word count of 1. WPM is 0. 
+asdfasf has a score of 2 at a difficulty level of 1 and with a word count of 2. WPM is 24. 
+asfsaddf has a score of 34 at a difficulty level of 2 and with a word count of 40. WPM is 2147483647. 
+cuit has a score of 38 at a difficulty level of 1 and with a word count of 40. WPM is 100. 
+asfdasdf has a score of 19 at a difficulty level of 1 and with a word count of 20. WPM is 92. 

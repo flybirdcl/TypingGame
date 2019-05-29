@@ -36,12 +36,11 @@ public class DifficultyGame extends Canvas implements KeyListener, Runnable {
     private int x = 1;
     private Score keeper;
     private int scorer;
-
-    
+    long tStart;
 
     public DifficultyGame() {
         setBackground(Color.white);
-
+        tStart = System.nanoTime();
         //instantiate words on screen
         keys = new Boolean[1];
         scorer = 0;
@@ -70,7 +69,6 @@ public class DifficultyGame extends Canvas implements KeyListener, Runnable {
         paint(window);
     }
 
-
     public void paint(Graphics window) {
         Graphics2D twoDGraph = (Graphics2D) window;
 
@@ -90,7 +88,7 @@ public class DifficultyGame extends Canvas implements KeyListener, Runnable {
         pass.moveAll();
         Boolean checker;
         pass.drawAll(graphToBack);
-        int j = 0;        
+        int j = 0;
         for (String b : wordList) {
             checker = User.getTruth(b);
             if (checker == true) {
@@ -102,23 +100,28 @@ public class DifficultyGame extends Canvas implements KeyListener, Runnable {
             j++;
         }
         //sutbract score when last word passes
-        if(pass.getBunch().size() > 0 && pass.getBunch().get(pass.getBunch().size()-1).getX() > 740){
+        if (pass.getBunch().size() > 0 && pass.getBunch().get(pass.getBunch().size() - 1).getX() > 740) {
             scorer--;
-        } 
+        }
         for (Words a : pass.getBunch()) {
             int i = 0;
             if (a.getX() > 740) {
-                a.setX(0);
+                a.setX((int) (Math.random() * (-30)));
             }
         }
-        
-        
-        if(pass.getBunch().size() == 0){
+
+        if (pass.getBunch().size() == 0) {
             try {
+                long tEnd = System.nanoTime();
+                long tRes = tEnd - tStart;
+                double seconds = (double) (tRes / 1000000000);
+                //System.out.println("Second: " + seconds);
+                keeper.setSec(seconds);
                 keeper.EnterScore(scorer, User.getDifficulty());
             } catch (IOException ex) {
                 Logger.getLogger(DifficultyGame.class.getName()).log(Level.SEVERE, null, ex);
             }
+
             System.exit(0);
         }
         twoDGraph.drawImage(back, null, 0, 0);
