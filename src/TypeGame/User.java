@@ -91,7 +91,6 @@ public class User extends JFrame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // BUTTON STUFF
-        //JFrame frame = new JFrame();
         frame.setSize(200, 100);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -136,6 +135,16 @@ public class User extends JFrame {
     public static void main(String args[]) {
         //Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         //System.out.println("Enter username");
+        Object[] options1 = {"Okay."};
+
+        JOptionPane.showOptionDialog(null,
+                "1. Just type the word displayed on the screen" + "\n2. Do not press spacebar/enter to enter the word in as this game does it automatically." + "\n3. And most importantly, have fun. - Cassidy Liu, Per 1",
+                "Game Rules",
+                JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                options1,
+                null);
         String userName = JOptionPane.showInputDialog(null, "Enter your username:");
         String c = JOptionPane.showInputDialog(null, "Enter difficulty (Input numbers 1-5 with 1 being the easiest)");
 
@@ -143,6 +152,7 @@ public class User extends JFrame {
             setDifficulty(Integer.parseInt(c));
         } catch (NumberFormatException ex) {
             System.out.println("Is not an integer! Please at least input only integers!");
+            System.exit(0);
         }
         if (!(Difficulty >= 1 && Difficulty <= 5)) {
             System.out.println("PLEASE INPUT NUMBERS 1-5 ONLY");
@@ -164,6 +174,5 @@ public class User extends JFrame {
         User run = new User();
 
     }
-    
 
 }

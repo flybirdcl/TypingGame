@@ -30,7 +30,7 @@ public class Score {
         System.out.print("" + User.getName1() + " has a score of " + a + " at a difficulty level of " + b + " and with a word amount of " + User.getAmount());
         System.out.println(". WPM is " + wpm + ".");
         System.out.println("Check txt file stored in the folder for stored score of all users.");
-        BufferedWriter out;     
+        BufferedWriter out;
         out = new BufferedWriter(new FileWriter("Scores.txt", true));
         out.append("" + User.getName1() + " has a score of " + a + " at a difficulty level of " + b + " and with a word count of " + User.getAmount());
         out.append(". WPM is " + wpm + ". ");
