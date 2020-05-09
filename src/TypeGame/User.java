@@ -34,7 +34,8 @@ public class User extends JFrame {
     private static int amount;
 
     /**
-     * @return the name
+     * @return the name of a robot that sucks
+		sou you laskdf test
      */
     public static String getName1() {
         return name;
