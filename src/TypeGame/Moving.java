@@ -7,7 +7,7 @@ package TypeGame;
 
 /**
  *
- * @author liuc5363
+ * @author liuc5363 change stuff here and there
  */
 public interface Moving {
 
